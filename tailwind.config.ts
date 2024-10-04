@@ -1,4 +1,4 @@
-import { nextui } from "@nextui-org/react";
+import { colors, nextui } from "@nextui-org/react";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -15,6 +15,12 @@ export default {
       height: {
         "screen-without-navbar": "calc(100vh - 64px)",
       },
+      colors: {
+        "almost-white": "#f9f9f9"
+      },
+      boxShadow: {
+        "ambient-white": "2px 2px 20px rgba(0, 0, 0, 0.1), -10px -10px 10px white"
+      }
     },
   },
   darkMode: "class",

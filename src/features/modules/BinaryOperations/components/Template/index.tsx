@@ -7,8 +7,7 @@ import cytoscape from "cytoscape";
 import { GraphGenerator } from "../GraphLibrary/GraphGenerator";
 // import { GraphGenerator_1 } from "../GraphLibrary/GraphGenerator";
 import { GraphController } from "../GraphLibrary/GraphController";
-import { ToolBar } from "../Toolbar/ToolBar";
-import "./style.css";
+import ToolBar from "../Toolbar/ToolBar";
 
 interface IProps {}
 
@@ -70,17 +69,7 @@ export class Template<T1, T2> extends Component<IProps, IState<T1, T2>> {
                 />
               </div>
               <div className={"ToolCell"}>
-                <ToolBar
-                  next_stage={this.nextStage}
-                  base_button={true}
-                  base_button_message={this.helpMessage()}
-                  graph_manipulations_button={this.isGraphModified()}
-                  graph_coloring_buttons={this.isGraphRepainted()}
-                  graph_adj_coloring_buttons={this.isGraphAdjRepainted()}
-                  graph_naming_buttons={this.isGraphNodeRenamed()}
-                  graph_weight_buttons={this.isGraphReweight()}
-                  change_visualization_policy_buttons={this.isVisualizingPolicyChangeble()}
-                />
+                <ToolBar />
               </div>
             </div>
             <div className={"LeftBottom"}>
@@ -94,10 +83,6 @@ export class Template<T1, T2> extends Component<IProps, IState<T1, T2>> {
 
   protected nextStage() {
     console.log("next stage");
-  }
-
-  protected helpMessage() {
-    return "1. Объединением графов G1 и G2 называется граф G, такой, что \nG1=<V1, U1>\nG2=<V2, U2>\nG =<V, U>=G1 ⋃ G2\nV=V1 ⋃ V2\nU=U1 ⋃ U2\n";
   }
 
   protected task() {

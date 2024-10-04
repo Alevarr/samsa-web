@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import ErrorPage from "./pages/layout/ErrorPage";
 import { APP_ROUTES } from "./constant/appRoutes.constant";
 import BinaryOperationsPage from "./pages/BinaryOperationsPage";
+import ShortestWayPage from "./pages/ShortestWayPage";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
         path: APP_ROUTES.binaryOperations.index,
         element: <BinaryOperationsPage />,
       },
+      { path: APP_ROUTES.shortestWay.index, element: <ShortestWayPage /> },
       // {
       //   path: "games/:slug",
       //   element: <GameDetailPage />,

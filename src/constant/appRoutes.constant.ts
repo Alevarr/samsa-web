@@ -4,4 +4,7 @@ export const APP_ROUTES = {
   binaryOperations: {
     index: "/binary-operations",
   },
+  shortestWay: {
+    index: "/shortest-way",
+  },
 };

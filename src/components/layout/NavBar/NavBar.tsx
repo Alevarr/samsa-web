@@ -14,7 +14,7 @@ import navItems from "./navItems.constant";
 const NavBar = () => {
   const { pathname } = useLocation();
   return (
-    <Navbar>
+    <Navbar className="bg-almost-white" isBlurred>
       <NavbarBrand>
         <Link href={APP_ROUTES.index}>
           <LogoIcon />

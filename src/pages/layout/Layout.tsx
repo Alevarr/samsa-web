@@ -9,7 +9,7 @@ function Layout() {
       <NextUIProvider navigate={navigate} useHref={useHref}>
         <NavBar />
         {/* substract header navbar height */}
-        <div className="w-full h-screen-without-navbar p-5">
+        <div className="w-full h-screen-without-navbar p-5 bg-almost-white">
           <Outlet />
         </div>
       </NextUIProvider>

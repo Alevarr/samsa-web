@@ -3,9 +3,9 @@ import { GraphGenerator } from "../GraphLibrary/GraphGenerator";
 import { GraphController } from "../GraphLibrary/GraphController";
 import { Template } from "../Template";
 import TaskTimer from "../TaskTimer/index";
-import { ToolBar } from "../Toolbar/ToolBar";
 import Matrix from "../MatrixLibrary/matrix";
 import { Button } from "@nextui-org/react";
+import ToolBar from "../Toolbar/ToolBar";
 
 export class ModuleExample<T1, T2> extends Template<T1, T2> {
   protected override task() {
@@ -94,31 +94,24 @@ export class ModuleExample<T1, T2> extends Template<T1, T2> {
       <>
         <div id="wrap" className="flex flex-row gap-4 justify-stretch">
           <div className="flex flex-col gap-4 w-[260px]">
-            <ToolBar
-              next_stage={this.nextStage}
-              base_button={true}
-              base_button_message={this.helpMessage()}
-              graph_manipulations_button={this.isGraphModified()}
-              graph_coloring_buttons={this.isGraphRepainted()}
-              graph_adj_coloring_buttons={this.isGraphAdjRepainted()}
-              graph_naming_buttons={this.isGraphNodeRenamed()}
-              graph_weight_buttons={this.isGraphReweight()}
-              change_visualization_policy_buttons={this.isVisualizingPolicyChangeble()}
-            />
+            <ToolBar />
             <TaskTimer timeSeconds={100} onTimerExpire={this.nextStage} />
           </div>
           <div className="flex flex-col gap-4 w-full">
             {this.isGraphModule() ? (
               <GraphController
                 id={"cy1"}
-                className="w-full h-full bg-slate-200"
+                className="w-full h-full shadow-ambient-white rounded-md"
                 graph={this.state.graph}
                 visualization_policy={this.visualizing_policy}
                 is_nodeid_visible={this.isNodeNameVisible()}
                 is_weights_visible={this.isEdgeWeightVisible()}
               />
             ) : (
-              <div id={"matrix"} className="w-full h-full bg-slate-200">
+              <div
+                id={"matrix"}
+                className="w-full h-full shadow-ambient-white rounded-md"
+              >
                 {/* <MatrixController matrix={this.generateMatrix()} /> */}
               </div>
             )}
@@ -129,16 +122,19 @@ export class ModuleExample<T1, T2> extends Template<T1, T2> {
               // className={`TaskCell ${
               //   variant === 1 ? "TaskCell-full-height" : ""
               // }`}
-              className="bg-slate-200 p-4"
+              className="shadow-ambient-white rounded-md p-4"
             >
               <p>Задание</p>
               <Task />
             </div>
             {variant === 2 && (
-              <div id={"drtfghbjk"} className="h-full bg-slate-200">
+              <div
+                id={"drtfghbjk"}
+                className="h-full shadow-ambient-white rounded-md"
+              >
                 <GraphController
                   id={"cy2"}
-                  className="w-full h-full bg-slate-200"
+                  className="w-full h-full shadow-ambient-white rounded-md"
                   graph={this.state.task_graph}
                   visualization_policy={this.visualizing_policy}
                   is_nodeid_visible={this.isNodeNameVisible()}
@@ -153,42 +149,6 @@ export class ModuleExample<T1, T2> extends Template<T1, T2> {
           Далее
         </Button>
       </>
-    );
-  }
-
-  protected override helpMessage() {
-    const text0 = "Рассмотрим графы G1=<V1, U1> и G2=<V2, U2>\n";
-    const text1 =
-      "1. Объединением графов G1 и G2 называется граф\nG =<V, U> такой, что\nV =V1 ∪ V2\nU =U1 ∪ U2\n";
-    const text2 =
-      "2. Соединением графов G1 и G2 называется граф\nG =<V, U> такой, что\nV =V1 ∪ V2\nU =U1 ∪ U2 ∪ (V1\\V2)x(V2\\V1)\n";
-    const text3 =
-      "3. Пересечением графов G1 и G2 называется граф\nG =<V, U> такой, что\nV =V1 ∩ V2\nU =U1 ∩ U2\n";
-    const text4 =
-      '4. Для добавления вершины нажмите кнопку "Добавить вершину"\n';
-    const text5 =
-      '5. Для удалить вершины выберите удаляемую вершину и нажмите кнопку "Удалить вершину"\n';
-    const text6 =
-      '6. Для добавления ребра выберите 2 вершины зажав "ctrl", нажмите кнопку "Добавить ребро"\n';
-    const text7 =
-      '7. Для удаления ребра выберите удаляемое ребро, нажмите кнопку "Удалить ребро"\n';
-    const text8 =
-      '8. Для изменения названия вершины используйте кнопу "Переименовать вершину"\n';
-    const text9 =
-      "9. Для изменения цвета вершины или ребра выберите цвет и вершину, которые хотите перекрасить, нажмите кнопку перекрасить вершину/ребро";
-    const text10 = "Удачи!";
-    return (
-      text0 +
-      text1 +
-      text2 +
-      text3 +
-      text4 +
-      text5 +
-      text6 +
-      text7 +
-      text8 +
-      text9 +
-      text10
     );
   }
 
