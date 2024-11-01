@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
 import "./style.css";
-const Face = () => {
+import { cn } from "@nextui-org/react";
+const Face = ({ className }: { className?: string }) => {
   useEffect(() => {
     anime({
       targets: ".eye",
@@ -31,7 +32,7 @@ const Face = () => {
     });
   }, []);
   return (
-    <div className="face">
+    <div className={cn("face", className)}>
       <div className="brow left" />
       <div className="brow right" />
       <div className="eye left" />

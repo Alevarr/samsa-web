@@ -53,7 +53,7 @@ const DashboardPage = () => {
   };
 
   return (
-    <main className="flex w-full h-screen items-center justify-center p-8 gap-8">
+    <main className="flex flex-col-reverse sm:flex-row w-full h-screen items-center justify-center p-8 gap-8">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="max-w-screen-md border border-default-200 space-y-4 py-4 px-2 rounded-md"
@@ -81,7 +81,7 @@ const DashboardPage = () => {
           Отправить
         </Button>
       </form>
-      <Face />
+      <Face className="shrink-0" />
     </main>
   );
 };
