@@ -1,43 +1,76 @@
-# GraphLabsWeb
+## Getting Started
 
-GraphLabsWeb - это веб-приложение, которое позволяет решать задачи на графах. Это приложение было создано с помощью следующих технологий:
+### Prerequisites
 
-- [React](https://ru.reactjs.org/) - библиотека для создания пользовательских интерфейсов.
-- [TypeScript](https://www.typescriptlang.org/) - статически типизированный язык программирования, который компилируется в JavaScript.
-- [Vite](https://vitejs.dev/) - инструмент для сборки и запуска приложений.
-- [Tailwind CSS](https://tailwindcss.com/) - фреймворк для создания CSS-стилей.
-- [Cytoscape](https://js.cytoscape.org/) - библиотека для создания интерактивных графических представлений.
-- [Next UI](https://nextui.org/) - библиотека для создания адаптивных и интерактивных компонентов.
+Ensure you have Node.js installed on your machine. You can download it from [Node.js official website](https://nodejs.org/).
 
-## Структура проекта
+### Installation
 
-Структура проекта была создана на основе статьи [Folder Structures in React Projects](https://dev.to/itswillt/folder-structures-in-react-projects-3dp8). Она состоит из следующих частей:
+1. Clone the repository to your local machine:
 
-- `src` - папка с исходным кодом приложения.
-  - `components` - папка с компонентами общими для всего приложения.
-  - `constant` - папка с константами приложения.
-  - `features` - папка с компонентами реализации изолированного функционала (например /feaures/auth/... содержит все что касается авторизации).
-  - `pages` - папка со страницами приложения.
-  - `App.tsx` - корневой компонент приложения.
-  - `main.tsx` - точка входа в приложение.
-  - `routes.tsx` - конфигурация маршрутизации с использованием react-router-dom [react-router-dom usage](https://medium.com/@ahsan-ali-mansoor/define-react-routes-with-better-approach-typescript-d07de782b517)
-- `public` - папка с статическими файлами. [Public folder](https://create-react-app.dev/docs/using-the-public-folder/#when-to-use-the-public-folder)
-- `vite.config.ts` - файл конфигурации Vite.
-- `tailwind.config.ts` - файл конфигурации Tailwind CSS.
-- `tsconfig.json` - файл конфигурации TypeScript.
+   ```sh
+   git clone https://github.com/your-username/graph-labs-web.git
+   ```
 
-## Как запустить проект
+2. Navigate to the project directory:
 
-1. Установите Node.js, если он еще не установлен. [Node installation](https://nodejs.org/en/download/package-manager)
-2. Установите зависимости, выполнив команду `npm install` в корневой папке проекта.
-3. Запустите проект, выполнив команду `npm run dev` в корневой папке проекта.
-4. Откройте веб-браузер и перейдите по адресу `http://localhost:5173/`.
+   ```sh
+   cd graph-labs-web
+   ```
 
-## Шаблон
+3. Install the dependencies:
 
-Актуальный шаблон находится в src/features/modules/ShortestWay
+   ```sh
+   npm install
+   ```
 
+### Running the Application
 
-## Особенности
+1. Start the development server:
 
-1. Если страница "Бинарные операции" крашится тыкать на лого и страницу пока не откроется нормально, чето там модуль шалит.
+   ```sh
+   npm run dev
+   ```
+
+2. Open your web browser and go to `http://localhost:5173` to see the application in action.
+
+### Building for Production
+
+To build the application for production, run:
+
+```sh
+npm run build
+```
+
+This will create an optimized bundle in the `dist` folder.
+
+### Previewing the Production Build
+
+To preview the production build, run:
+
+```sh
+npm run preview
+```
+
+This will start a local server to serve the production build.
+
+## Project Structure
+
+- `src`: Contains the source code of the application.
+  - `components`: Reusable components used throughout the application.
+  - `constant`: Application constants.
+  - `features`: Feature-specific components and logic.
+  - `pages`: Application pages.
+  - `App.tsx`: The root component of the application.
+  - `main.tsx`: The entry point of the application.
+  - `routes.tsx`: Application routing configuration.
+
+- `public`: Contains static files.
+
+- `vite.config.ts`: Vite configuration file.
+- `tailwind.config.ts`: Tailwind CSS configuration file.
+- `tsconfig.json`: TypeScript configuration file.
+
+## License
+
+This project is licensed under the MIT License.
