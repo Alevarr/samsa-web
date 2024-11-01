@@ -1,0 +1,45 @@
+.face {
+  position: relative;
+  width: 160px; /* Ширина */
+  height: 160px; /* Высота для круглой формы */
+  background-color: #ffd1dc;
+  border-radius: 50%; /* Радиус 50% для круглого лица */
+}
+.eye {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #333;
+  border-radius: 50%;
+  top: 40px; /* Изменено для круглого лица */
+}
+.eye.left {
+  left: 40px;
+}
+.eye.right {
+  right: 40px;
+}
+.brow {
+  position: absolute;
+  width: 45px;
+  height: 10px;
+  background-color: #333;
+  border-radius: 5px;
+  top: 30px; /* Изменено для круглого лица */
+}
+.brow.left {
+  left: 30px;
+}
+.brow.right {
+  right: 30px;
+}
+.mouth {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  background-color: #333;
+  border-radius: 0 0 40px 40px;
+  top: 90px; /* Изменено для круглого лица */
+  left: 25%;
+  transform: translateX(-50%);
+}
