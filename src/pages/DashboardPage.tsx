@@ -1,6 +1,6 @@
 import Face from "@/components/face/face";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Input, Spinner } from "@nextui-org/react";
+import { Button, Input, Spinner, Textarea } from "@nextui-org/react";
 import { Send } from "lucide-react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -53,35 +53,53 @@ const DashboardPage = () => {
   };
 
   return (
-    <main className="flex flex-col-reverse sm:flex-row w-full h-screen items-center justify-center p-8 gap-8">
+    <main className="flex flex-col w-full h-screen items-center justify-center p-8 gap-8">
+      <Face className="shrink-0" />
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-screen-md border border-default-200 space-y-4 py-4 px-2 rounded-md"
+        className="flex gap-4 w-full max-w-3xl py-4 px-2 rounded-md"
       >
-        <Input
+        <Textarea
           {...register("messsage")}
-          // variant="faded"
           label="Сообщение"
           isInvalid={!!errors?.messsage}
           errorMessage={errors?.messsage?.message}
+          classNames={{
+            innerWrapper: "h-[300px]",
+          }}
+          endContent={
+            <Button
+              type="submit"
+              isDisabled={isSubmitting}
+              startContent={
+                isSubmitting ? (
+                  <Spinner color="white" size="sm" />
+                ) : (
+                  <Send size={18} />
+                )
+              }
+              color="primary"
+              isIconOnly
+              className="rounded-full self-end"
+            />
+          }
         />
-        <Button
+        {/* <Button
           type="submit"
           isDisabled={isSubmitting}
           startContent={
             isSubmitting ? (
-              <Spinner color="white" size="sm" />
+              <Spinner color="white" size="lg" />
             ) : (
-              <Send size={18} />
+              <Send size={24} />
             )
           }
           color="primary"
-          fullWidth
+          size="lg"
         >
           Отправить
-        </Button>
+        </Button> */}
       </form>
-      <Face className="shrink-0" />
     </main>
   );
 };
