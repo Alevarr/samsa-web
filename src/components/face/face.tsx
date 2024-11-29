@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import anime from "animejs/lib/anime.es.js";
 import "./style.css";
 import { Button, cn } from "@nextui-org/react";
@@ -221,8 +220,8 @@ const Face = ({ className }: { className?: string }) => {
   //   });
   // }, []);
   return (
-    <div className="flex flex-row gap-4">
-      <div className={cn("face", className)}>
+    <div className={cn("flex flex-col gap-4 justify-center min-[400px]:flex-row items-center", className)}>
+      <div className="face">
         <div className="brow left" />
         <div className="brow right" />
         <div className="eye left" />
@@ -230,7 +229,7 @@ const Face = ({ className }: { className?: string }) => {
         <div className="mouth" />
         <div className="school" />
       </div>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 w-full min-[400px]:w-auto">
         <Button onClick={() => changeExpression("sad")}>Грусть</Button>
         <Button onClick={() => changeExpression("happy")}>Радость</Button>
         <Button onClick={() => changeExpression("angry")}>Гнев</Button>
