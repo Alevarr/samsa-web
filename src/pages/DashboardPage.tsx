@@ -145,14 +145,14 @@ const DashboardPage = () => {
   return (
     <main className="flex flex-col sm:flex-row w-full h-screen items-stretch justify-stretch p-8 gap-0">
       <form
-          onSubmit={handleSubmit(onEssaySubmit)}
+          onSubmit={essayHandleSubmit(onEssaySubmit)}
           className="flex gap-4 sm:w-1/2 max-w-3xl py-4 px-2 rounded-md h-full"
         >
           <Textarea
             {...essayRegister("messsage")}
             label="Эссе"
-            isInvalid={!!errors?.messsage}
-            errorMessage={errors?.messsage?.message}
+            isInvalid={!!essayErrors?.messsage}
+            errorMessage={essayErrors?.messsage?.message}
             disableAutosize
             classNames={{
               inputWrapper: "!h-full",
