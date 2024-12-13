@@ -1,7 +1,7 @@
 "use client";
 import { sendDialog, sendEssay } from "@/actions/api.action";
 import Chat from "@/components/Chat";
-import { type ExpressionEnum, Face } from "@/components/face/Face";
+import { type ExpressionEnum, Face } from "@/components/Face";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input, Spinner, Textarea } from "@nextui-org/react";
 import { set } from "animejs";

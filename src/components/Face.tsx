@@ -1,5 +1,5 @@
 import anime from "animejs/lib/anime.es.js";
-import "./style.css";
+import "./face/style.css";
 import { Button, cn } from "@nextui-org/react";
 import { useEffect } from "react";
 
