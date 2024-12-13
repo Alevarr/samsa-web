@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://app.ultraswap.ai
+
+# Sitemaps
+Sitemap: https://app.ultraswap.ai/sitemap.xml

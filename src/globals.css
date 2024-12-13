@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* width */
+::-webkit-scrollbar {
+  height: 6px;
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: theme("colors.background");
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: theme("colors.content4");
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: theme("colors.primary");
+}
+
+.bg-primary-gradient {
+  @apply bg-gradient-to-r from-primary-600 to-primary-500;
+}

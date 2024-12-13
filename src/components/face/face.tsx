@@ -1,10 +1,14 @@
 import anime from "animejs/lib/anime.es.js";
 import "./style.css";
 import { Button, cn } from "@nextui-org/react";
-const Face = ({ className }: { className?: string }) => {
-  function changeExpression(
-    expression: "sad" | "happy" | "angry" | "surprised",
-  ) {
+import { useEffect } from "react";
+
+export type ExpressionEnum = "angry" | "happy" | "sad" | "surprised";
+const Face = ({
+  className,
+  expression,
+}: { className?: string; expression?: ExpressionEnum }) => {
+  function changeExpression(expression: ExpressionEnum) {
     const mouth = document.querySelector(".mouth") as HTMLElement;
     const brow_left = document.querySelector(".brow.left") as HTMLElement;
     const brow_right = document.querySelector(".brow.right") as HTMLElement;
@@ -191,6 +195,10 @@ const Face = ({ className }: { className?: string }) => {
         break;
     }
   }
+
+  useEffect(() => {
+    if (expression) changeExpression(expression);
+  }, [expression]);
   // useEffect(() => {
   //   anime({
   //     targets: ".eye",
@@ -220,7 +228,12 @@ const Face = ({ className }: { className?: string }) => {
   //   });
   // }, []);
   return (
-    <div className={cn("flex flex-col gap-4 justify-center min-[400px]:flex-row items-center", className)}>
+    <div
+      className={cn(
+        "flex flex-col gap-4 justify-center min-[400px]:flex-row items-center",
+        className,
+      )}
+    >
       <div className="face">
         <div className="brow left" />
         <div className="brow right" />
@@ -229,12 +242,12 @@ const Face = ({ className }: { className?: string }) => {
         <div className="mouth" />
         <div className="school" />
       </div>
-      <div className="flex flex-col gap-2 w-full min-[400px]:w-auto">
+      {/* <div className="flex flex-col gap-2 w-full min-[400px]:w-auto">
         <Button onClick={() => changeExpression("sad")}>Грусть</Button>
         <Button onClick={() => changeExpression("happy")}>Радость</Button>
         <Button onClick={() => changeExpression("angry")}>Гнев</Button>
         <Button onClick={() => changeExpression("surprised")}>Удивление</Button>
-      </div>
+      </div> */}
     </div>
   );
 };
