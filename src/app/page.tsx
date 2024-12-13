@@ -1,6 +1,7 @@
 "use client";
 import { sendDialog, sendEssay } from "@/actions/api.action";
 import Chat from "@/components/Chat";
+import { type ExpressionEnum, Face } from "@/components/face/Face";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input, Spinner, Textarea } from "@nextui-org/react";
 import { set } from "animejs";
@@ -9,7 +10,6 @@ import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
-import Face, { type ExpressionEnum } from "../components/face/Face";
 
 const messageFormSchema = z.object({
   messsage: z.string().min(1, { message: "Поле не может быть пустым" }),

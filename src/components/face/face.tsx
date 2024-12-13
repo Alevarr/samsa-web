@@ -4,7 +4,7 @@ import { Button, cn } from "@nextui-org/react";
 import { useEffect } from "react";
 
 export type ExpressionEnum = "angry" | "happy" | "sad" | "surprised";
-const Face = ({
+export const Face = ({
   className,
   expression,
 }: { className?: string; expression?: ExpressionEnum }) => {
@@ -251,5 +251,3 @@ const Face = ({
     </div>
   );
 };
-
-export default Face;
