@@ -3,7 +3,7 @@ import "./style.css";
 import { Button, cn } from "@nextui-org/react";
 const Face = ({ className }: { className?: string }) => {
   function changeExpression(
-    expression: "sad" | "happy" | "angry" | "surprised"
+    expression: "sad" | "happy" | "angry" | "surprised" | "fear" | "disgust"
   ) {
     const mouth = document.querySelector(".mouth") as HTMLElement;
     const brow_left = document.querySelector(".brow.left") as HTMLElement;
@@ -38,7 +38,8 @@ const Face = ({ className }: { className?: string }) => {
         anime.remove(eye_left);
         anime.remove(eye_right);
         anime.remove(eye);
-        mouth.style.transform = "translateX(-50%)  rotate(180deg)";
+        mouth.style.transform = "translateX(-50%)"; //rotate(180deg)
+        mouth.style.borderRadius = "40px 40px 0 0";
         brow_left.style.transform = "rotate(-25deg)";
         brow_right.style.transform = "rotate(25deg)";
 
@@ -54,13 +55,14 @@ const Face = ({ className }: { className?: string }) => {
           targets: ".eye",
           translateY: [-2, 2], // Легкое движение вверх и вниз
           duration: 500,
+          scale: 1,
           easing: "easeInOutSine",
           direction: "alternate",
           loop: true,
         });
         anime({
           targets: ".mouth",
-          translateY: [-10, 10], // Легкое движение вверх и вниз
+          translateY: [-5, 5], // Легкое движение вверх и вниз
           duration: 500,
           easing: "easeInOutSine",
           direction: "alternate",
@@ -83,7 +85,7 @@ const Face = ({ className }: { className?: string }) => {
 
         anime({
           targets: ".brow",
-          translateY: [-600, 200], // Движение вверх и вниз
+          translateY: [-200, 200], // Движение вверх и вниз
           duration: 400,
           easing: "easeInOutSine",
           direction: "alternate",
@@ -93,13 +95,14 @@ const Face = ({ className }: { className?: string }) => {
           targets: ".eye",
           translateY: [-2, 2], // Легкое движение вверх и вниз
           duration: 500,
+          scale: 1,
           easing: "easeInOutSine",
           direction: "alternate",
           loop: true,
         });
         anime({
           targets: ".mouth",
-          translateY: [-10, 10], // Легкое движение вверх и вниз
+          translateY: [-5, 5], // Легкое движение вверх и вниз
           duration: 500,
           easing: "easeInOutSine",
           direction: "alternate",
@@ -116,13 +119,14 @@ const Face = ({ className }: { className?: string }) => {
         anime.remove(eye_left);
         anime.remove(eye_right);
         anime.remove(eye);
-        mouth.style.transform = "translateX(-50%)  rotate(180deg) scaleY(0.5)";
+        mouth.style.transform = "translateX(-50%) scaleY(0.5)"; //rotate(180deg)
         brow_left.style.transform = "rotate(25deg) translateY(-10%)";
         brow_right.style.transform = "rotate(-25deg) translateY(-10%)";
+        mouth.style.borderRadius = "40px 40px 0 0";
 
         anime({
           targets: ".brow",
-          translateY: [-400, 400], // Движение вверх и вниз
+          translateY: [-100, 100], // Движение вверх и вниз
           duration: 400,
           easing: "easeInOutSine",
           direction: "alternate",
@@ -131,6 +135,7 @@ const Face = ({ className }: { className?: string }) => {
         anime({
           targets: ".eye",
           translateY: [-2, 2], // Легкое движение вверх и вниз
+          scale: 1,
           duration: 500,
           easing: "easeInOutSine",
           direction: "alternate",
@@ -162,7 +167,7 @@ const Face = ({ className }: { className?: string }) => {
 
         anime({
           targets: ".brow",
-          translateY: [-500, 0], // Движение вверх и вниз
+          translateY: [-300, 0], // Движение вверх и вниз
           duration: 400,
           easing: "easeInOutSine",
           direction: "alternate",
@@ -170,8 +175,9 @@ const Face = ({ className }: { className?: string }) => {
         });
         anime({
           targets: ".eye",
-          translateY: [-2, 2], // Легкое движение вверх и вниз
+          translateY: [-1, 1], // Легкое движение вверх и вниз
           duration: 500,
+          scale: 1,
           easing: "easeInOutSine",
           direction: "alternate",
           loop: true,
@@ -198,7 +204,8 @@ const Face = ({ className }: { className?: string }) => {
         mouth.style.transform = "translateX(-50%) scaleY(1.5) scaleX(0.7)";
         brow_left.style.transform = "rotate(-25deg) translateY(-80%)";
         brow_right.style.transform = "rotate(25deg) translateY(-80%)";
-        mouth.style.borderRadius = "50";
+        mouth.style.borderRadius = "50%";
+
         anime({
           targets: ".eye",
           scale: [1, 1.3], // Увеличение глаз
@@ -239,19 +246,23 @@ const Face = ({ className }: { className?: string }) => {
         anime.remove(brow_right);
         anime.remove(eye_left);
         anime.remove(eye_right);
+
         // Настройка элементов
         mouth.style.transform = "translateX(-50%) rotate(-15deg)";
         mouth.style.borderRadius = "0 50px 50px 0";
         mouth.style.width = "40px";
         mouth.style.height = "20px";
+
         // brow_left.style.transform = 'rotate(20deg) translateY(-10px)';
         // brow_right.style.transform = 'rotate(-20deg) translateY(5px)';
         brow_left.style.transform = "rotate(-25deg)";
         brow_right.style.transform = "rotate(25deg)";
+
         // eye_left.style.width = '20px';
         // eye_left.style.height = '15px';
         // eye_right.style.width = '20px';
-        // eye_right.style.height = '15p
+        // eye_right.style.height = '15px';
+
         // Анимация рта
         anime({
           targets: ".mouth",
@@ -287,6 +298,36 @@ const Face = ({ className }: { className?: string }) => {
       default:
         break;
     }
+
+    // Анимация моргания глаз (остается постоянной)
+    // anime({
+    //   targets: '.brow',
+    //   translateY: [-10, 20], // Движение вверх и вниз
+    //   duration: 500,
+    //   easing: 'easeInOutSine',
+    //   direction: 'alternate',
+    //   loop: true
+    // });
+
+    // // Анимация глаз
+    // anime({
+    //   targets: '.eye',
+    //   translateY: [-3, 3], // Легкое движение вверх и вниз
+    //   duration: 500,
+    //   easing: 'easeInOutSine',
+    //   direction: 'alternate',
+    //   loop: true
+    // });
+
+    // // Анимация рта
+    // anime({
+    //   targets: '.mouth',
+    //   translateY: [-2, 2], // Легкое движение вверх и вниз
+    //   duration: 500,
+    //   easing: 'easeInOutSine',
+    //   direction: 'alternate',
+    //   loop: true
+    // });
   }
   // useEffect(() => {
   //   anime({
