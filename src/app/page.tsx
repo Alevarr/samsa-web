@@ -122,7 +122,7 @@ const Page = () => {
         return;
       }
       const { answer_text, emotion } = res.data;
-      await runSpeech(answer_text);
+      // await runSpeech(answer_text);
       setMessages((prev) => [
         ...prev,
         { belongsToUser: false, message: answer_text },
