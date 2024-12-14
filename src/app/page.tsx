@@ -105,7 +105,7 @@ const Page = () => {
         ...prev,
         { belongsToUser: false, message: answer_text },
       ]);
-      await runSpeech(answer_text);
+      // await runSpeech(answer_text);
       setExpression(expressionMap[emotion]);
     });
   };
