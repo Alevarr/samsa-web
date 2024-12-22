@@ -46,15 +46,15 @@ function ajaxQuery(
 }
 
 export default function Page() {
-  // const searchParams = useSearchParams();
-  // const counter = searchParams.get("counter");
-  // const userID = searchParams.get("userID");
+  const searchParams = useSearchParams();
+  const counter = searchParams.get("counter");
+  const userID = searchParams.get("userID");
   const [ready, setReady] = useState(false);
 
   function sendYandexToken(objToken: any) {
     const params = {
       tokenData: JSON.stringify(objToken),
-      // userID: userID,
+      userID: userID,
     };
 
     const onResponse = (strResponse: string) => {
@@ -80,7 +80,7 @@ export default function Page() {
       {
         client_id: "0b65a81b6b164d2b9f78f295e060e5fc",
         response_type: "token",
-        redirect_uri: "https://92.243.181.59:3000/yandex-callback",
+        redirect_uri: "http://localhost/bot/tg_bot_YMetrika_access_granted.php",
       },
       window.location.origin,
       {
@@ -110,7 +110,7 @@ export default function Page() {
   return (
     <>
       <h1>
-        Чтобы разрешить доступ к счетчику {1}, пожалуйста, нажмите кнопку
+        Чтобы разрешить доступ к счетчику {counter}, пожалуйста, нажмите кнопку
         Яндекса.
       </h1>
       <p>

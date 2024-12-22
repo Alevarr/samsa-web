@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { GeistSans } from "geist/font/sans";
@@ -28,7 +28,9 @@ export default async function RootLayout({
       </head>
 
       <body className={cn(GeistSans.className, "notranslate")}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Suspense>{children}</Suspense>
+        </Providers>
       </body>
 
       {/* <GoogleTagManager gtmId="GTM-WS2SZG36" />
