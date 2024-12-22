@@ -92,17 +92,17 @@ export default function Page() {
         buttonSize: "m",
         buttonBorderRadius: 0,
       },
-    )
+    ) //@ts-ignore
       .then((result) => {
         console.log(result.handler);
         const r = result.handler();
         return r;
-      })
+      }) //@ts-ignore
       .then((data) => {
         console.log(data);
         // sendYandexToken(data);
         console.log("Сообщение с токеном: ", data);
-      })
+      }) //@ts-ignore
       .catch((error) => {
         console.log("Что-то пошло не так: ", error);
         document.body.innerHTML += `Что-то пошло не так: ${JSON.stringify(error)}`;
