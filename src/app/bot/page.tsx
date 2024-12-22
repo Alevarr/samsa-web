@@ -1,7 +1,6 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import Script from "next/script";
 import { useEffect, useState } from "react";
 
 function ajaxQuery(
@@ -47,15 +46,15 @@ function ajaxQuery(
 }
 
 export default function Page() {
-  const searchParams = useSearchParams();
-  const counter = searchParams.get("counter");
-  const userID = searchParams.get("userID");
+  // const searchParams = useSearchParams();
+  // const counter = searchParams.get("counter");
+  // const userID = searchParams.get("userID");
   const [ready, setReady] = useState(false);
 
   function sendYandexToken(objToken: any) {
     const params = {
       tokenData: JSON.stringify(objToken),
-      userID: userID,
+      // userID: userID,
     };
 
     const onResponse = (strResponse: string) => {
@@ -111,7 +110,7 @@ export default function Page() {
   return (
     <>
       <h1>
-        Чтобы разрешить доступ к счетчику {counter}, пожалуйста, нажмите кнопку
+        Чтобы разрешить доступ к счетчику {1}, пожалуйста, нажмите кнопку
         Яндекса.
       </h1>
       <p>
