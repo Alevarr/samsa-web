@@ -105,7 +105,7 @@ const Page = () => {
         ...prev,
         { belongsToUser: false, message: answer_text },
       ]);
-      await runSpeech(answer_text);
+      // await runSpeech(answer_text);
       setExpression(expressionMap[emotion]);
     });
   };
@@ -121,8 +121,8 @@ const Page = () => {
         toast.error("Произошла ошибка");
         return;
       }
-      const { answer_text, emotion } = res.data;
-      await runSpeech(answer_text);
+      const { answer_text } = res.data;
+      // await runSpeech(answer_text);
       setMessages((prev) => [
         ...prev,
         { belongsToUser: false, message: answer_text },
