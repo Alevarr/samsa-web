@@ -99,7 +99,7 @@ export default function Page() {
       }) //@ts-ignore
       .then((data) => {
         console.log(data);
-        // sendYandexToken(data);
+        sendYandexToken(data);
         console.log("Сообщение с токеном: ", data);
       }) //@ts-ignore
       .catch((error) => {

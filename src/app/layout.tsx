@@ -24,7 +24,7 @@ export default async function RootLayout({
   return (
     <html lang="ru">
       <head>
-        <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-latest.js" />
+        <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-with-polyfills-latest.js" />
       </head>
 
       <body className={cn(GeistSans.className, "notranslate")}>
