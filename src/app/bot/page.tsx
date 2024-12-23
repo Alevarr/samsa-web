@@ -80,7 +80,9 @@ export default function Page() {
       {
         client_id: "0b65a81b6b164d2b9f78f295e060e5fc",
         response_type: "token",
-        redirect_uri: "http://localhost/bot/tg_bot_YMetrika_access_granted.php",
+        //TODO: добавить userID, а на странице приема все собрать и отдать в тг бота
+        // redirect_uri: `http://localhost/bot/tg_bot_YMetrika_access_granted.php?userID=${userID}&counter=${counter}`,
+        redirect_uri: "http://localhost/bot/yandex-callback",
       },
       window.location.origin,
       {
