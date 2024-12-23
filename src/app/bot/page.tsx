@@ -49,7 +49,6 @@ export default function Page() {
   const searchParams = useSearchParams();
   const counter = searchParams.get("counter");
   const userID = searchParams.get("userID");
-  const [ready, setReady] = useState(false);
 
   function sendYandexToken(objToken: any) {
     const params = {
@@ -61,7 +60,12 @@ export default function Page() {
       document.body.innerHTML = strResponse;
     };
 
-    ajaxQuery("yandexMetrika_onAccessGranted.php", params, onResponse, true);
+    ajaxQuery(
+      "http://localhost/bot/yandexMetrika_onAccessGranted.php",
+      params,
+      onResponse,
+      true,
+    );
   }
   useEffect(() => {
     // window.YaAuthSuggest.init(
@@ -108,7 +112,7 @@ export default function Page() {
         console.log("Что-то пошло не так: ", error);
         document.body.innerHTML += `Что-то пошло не так: ${JSON.stringify(error)}`;
       });
-  }, [ready]);
+  }, []);
   return (
     <>
       <h1>
