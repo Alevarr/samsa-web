@@ -20,13 +20,13 @@ function ajaxQuery(
     }
   };
 
-  const fullUrl = `${url}${
-    methodPost ? "" : Object.keys(params).length > 0 ? "?" : ""
-  }${Object.keys(params)
-    .map((key) => `${key}=${encodeURIComponent(params[key])}`)
-    .join("&")}`;
+  // const fullUrl = `${url}${
+  //   methodPost ? "" : Object.keys(params).length > 0 ? "?" : ""
+  // }${Object.keys(params)
+  //   .map((key) => `${key}=${encodeURIComponent(params[key])}`)
+  //   .join("&")}`;
 
-  request.open(methodPost ? "POST" : "GET", fullUrl, true);
+  request.open(methodPost ? "POST" : "GET", url, true);
 
   if (methodPost) {
     request.setRequestHeader(
@@ -35,13 +35,14 @@ function ajaxQuery(
     );
   }
 
-  request.send(
-    methodPost
-      ? Object.keys(params)
-          .map((key) => `${key}=${encodeURIComponent(params[key])}`)
-          .join("&")
-      : null,
-  );
+  request.send(JSON.stringify(params));
+  // request.send(
+  //   methodPost
+  //     ? Object.keys(params)
+  //         .map((key) => `${key}=${encodeURIComponent(params[key])}`)
+  //         .join("&")
+  //     : null,
+  // );
   return request;
 }
 
