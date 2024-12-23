@@ -82,7 +82,7 @@ export default function Page() {
         response_type: "token",
         //TODO: добавить userID, а на странице приема все собрать и отдать в тг бота
         // redirect_uri: `http://localhost/bot/tg_bot_YMetrika_access_granted.php?userID=${userID}&counter=${counter}`,
-        redirect_uri: "http://localhost/bot/yandex-callback",
+        redirect_uri: "http://2dchat-web.vercel.app/bot/yandex-callback",
       },
       window.location.origin,
       {
