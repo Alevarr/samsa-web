@@ -49,16 +49,20 @@ function ajaxQuery(
 export default function Page() {
   const searchParams = useSearchParams();
   const counter = searchParams.get("counter");
+  const projectID = searchParams.get("projectID");
   const userID = searchParams.get("userID");
+
+  const [message, setMessage] = useState<string | null>(null);
 
   function sendYandexToken(objToken: any) {
     const params = {
       tokenData: JSON.stringify(objToken),
+      projectID: projectID,
       userID: userID,
     };
 
     const onResponse = (strResponse: string) => {
-      document.body.innerHTML = strResponse;
+      setMessage(strResponse);
     };
 
     ajaxQuery(
@@ -105,25 +109,31 @@ export default function Page() {
         return r;
       }) //@ts-ignore
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         sendYandexToken(data);
-        console.log("Сообщение с токеном: ", data);
+        // console.log("Сообщение с токеном: ", data);
       }) //@ts-ignore
       .catch((error) => {
         console.log("Что-то пошло не так: ", error);
-        document.body.innerHTML += `Что-то пошло не так: ${JSON.stringify(error)}`;
+        setMessage(`Что-то пошло не так: ${JSON.stringify(error)}`);
       });
   }, []);
   return (
     <>
-      <h1>
-        Чтобы разрешить доступ к счетчику {counter}, пожалуйста, нажмите кнопку
-        Яндекса.
-      </h1>
-      <p>
-        Если кнопка Яндекса не появилась, подождите, пожалуйста. Это может
-        занять до 1 минуты.
-      </p>
+      {message ? (
+        <b>{message}</b>
+      ) : (
+        <>
+          <h1>
+            Чтобы разрешить доступ к счетчику {counter}, пожалуйста, нажмите
+            кнопку Яндекса.
+          </h1>
+          <p>
+            Если кнопка Яндекса не появилась, подождите, пожалуйста. Это может
+            занять до 1 минуты.
+          </p>
+        </>
+      )}
     </>
   );
 }

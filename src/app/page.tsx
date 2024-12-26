@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Input, Spinner, Textarea } from "@nextui-org/react";
 import { set } from "animejs";
 import { Send } from "lucide-react";
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -58,6 +58,32 @@ const Page = () => {
   } = useForm<EssayForm>({
     resolver: zodResolver(essayFormSchema),
   });
+
+  useEffect(() => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "http://localhost/catchForm", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+
+    const requestBody = [
+      { name: "tildaspec-formname", value: "kvbot" },
+      { name: "Email", value: "alevar03@mail.ru" },
+      { name: "Name", value: "Алексей" },
+      { name: "Phone", value: "+79168250053" },
+      { name: "form-spec-comments", value: "Its good" },
+    ];
+
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          console.log("Request successful");
+        } else {
+          console.error("Request failed");
+        }
+      }
+    };
+
+    xhr.send(JSON.stringify(requestBody));
+  }, []);
 
   const runSpeech = async (text: string) => {
     const body = {
