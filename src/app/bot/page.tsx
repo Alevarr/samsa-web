@@ -51,14 +51,19 @@ export default function Page() {
   const counter = searchParams.get("counter");
   const projectID = searchParams.get("projectID");
   const userID = searchParams.get("userID");
+  const SD = searchParams.get("SD");
 
   const [message, setMessage] = useState<string | null>(null);
 
   function sendYandexToken(objToken: any) {
     const params = {
       tokenData: JSON.stringify(objToken),
-      projectID: projectID,
       userID: userID,
+      // KVBot
+      // projectID: projectID,
+
+      // TGBot
+      SD: SD,
     };
 
     const onResponse = (strResponse: string) => {
@@ -66,7 +71,8 @@ export default function Page() {
     };
 
     ajaxQuery(
-      "http://localhost/bot/yandexMetrika_onAccessGranted.php",
+      // "http://localhost/bot/yandexMetrika_onAccessGranted.php", For KVBot
+      "http://localhost:8080/bot/yandexMetrika_onAccessGranted.php", // For tgbot
       params,
       onResponse,
       true,
