@@ -31,8 +31,7 @@ function ajaxQuery(
   if (methodPost) {
     request.setRequestHeader(
       "Content-Type",
-      "application/x-www-form-urlencoded", //KVBot
-      // "application/json", // TGBot
+      "application/x-www-form-urlencoded",
     );
   }
 
