@@ -3,7 +3,7 @@ import { sendDialog, sendEssay } from "@/actions/api.action";
 import Chat from "@/components/Chat";
 import { type ExpressionEnum, Face } from "@/components/Face";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Input, Spinner, Textarea } from "@nextui-org/react";
+import { Button, Link, Input, Spinner, Textarea } from "@nextui-org/react";
 import { set } from "animejs";
 import { Send } from "lucide-react";
 import { useEffect, useState, useTransition } from "react";
@@ -222,6 +222,7 @@ const Page = () => {
           />
         </form>
       </div>
+      <Button as={Link} href="https://t.me/+PEkZYsavebo5ODIy">В канал</Button>
     </main>
   );
 };

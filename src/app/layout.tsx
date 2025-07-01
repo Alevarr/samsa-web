@@ -26,6 +26,7 @@ export default async function RootLayout({
       <head>
         <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-with-polyfills-latest.js" />
         <script src="https://yastatic.net/s3/passport-sdk/autofill/v1/sdk-suggest-token-with-polyfills-latest.js" />
+        <script src="https://dev.api.tgtrack.ru/API/landing_script/v1/?linkID=d8acc9ce9d25a&chat=%2BPEkZYsavebo5ODIy&type=ya&counterID=99607195" type="text/javascript" defer></script>
       </head>
 
       <body className={cn(GeistSans.className, "notranslate")}>
